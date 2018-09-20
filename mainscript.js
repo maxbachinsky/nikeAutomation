@@ -1,11 +1,6 @@
-
-//function mainScript1() {
-  //
-
-    //
-//}
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById("run").addEventListener("click", handler);
+  (document.getElementById("old").addEventListener('click', old));
+  (document.getElementById("new").addEventListener('click', runNew));
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -19,11 +14,29 @@ numberOfTabs=document.getElementById("numberOfTabs").value;
 }
 
 
-function handler() {
+function handlerNew() {
   for (var i=1; i<=numberOfTabs; i++) {
   var link=document.getElementById("URL").value;
   chrome.tabs.create({'url': link}, function(tab) {
   });
-  chrome.tabs.executeScript(null, {file: "mainscript1.js"});
+  chrome.tabs.executeScript(null, {file: "newScript.js"});
 }
+}
+
+function handlerOld() {
+  for (var i=1; i<=numberOfTabs; i++) {
+  var link=document.getElementById("URL").value;
+  chrome.tabs.create({'url': link}, function(tab) {
+  });
+  chrome.tabs.executeScript(null, {file: "oldScript.js"});
+}
+}
+
+function runNew() {
+  document.getElementById("run").addEventListener("click", handlerNew);
+
+}
+function old(){
+  document.getElementById("run").addEventListener("click", handlerOld);
+
 }
