@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+
+  "name": "Nike Automation",
+  "description": "This extension will open tabs, add shoe to cart and inform the user when there is a shoe in cart",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "icon.png"
+  },
+
+  "background" : {
+      "scripts" : ["openTab.js"]
+    },
+
+  "permissions": [
+   "tabs", "activeTab", "<all_urls>"
+   ]
+
+}
