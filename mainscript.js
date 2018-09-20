@@ -8,9 +8,23 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 var numberOfTabs=1;
+var sizes =[];
+var sizesString ="";
 
 function storeValues() {
 numberOfTabs=document.getElementById("numberOfTabs").value;
+sizesString= document.getElementById("sizes").value;
+var count=0;
+for (var i=0; i<sizesString.length; i++) {
+  if (sizesString.substring(i,i+1).localeCompare(",")==0){
+    sizes[count]=sizesString.substring(i-1,i);
+    count++;
+  }
+  else if (i==sizesString.length-1){
+    sizes[count]=sizesString.substring(i);
+  }
+}
+  alert(sizes.toString());
 }
 
 
