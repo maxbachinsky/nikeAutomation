@@ -1,2 +1,4 @@
-document.querySelector('[aria-label="US 9.5"]').click();
+var x=localStorage.getItem("sizesArray");
+sizeSelector=x[Math.floor(Math.random()*(x.length))];
+document.querySelector('[aria-label="US '+sizeSelector+'"]').click();
 document.querySelector('.addToCartBtn').click();

@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 var numberOfTabs=1;
-var sizes =[];
+
+var  sizes = [];
+
 var sizesString ="";
 
 function storeValues() {
@@ -17,15 +19,15 @@ sizesString= document.getElementById("sizes").value;
 var count=0;
 for (var i=0; i<sizesString.length; i++) {
   if (sizesString.substring(i,i+1).localeCompare(",")==0){
-    sizes[count]=sizesString.substring(i-1,i);
-    count++;
+      sizes[count]=sizesString.substring(sizesString.lastIndexOf(",",i-1)+1,i);
+      count++;
   }
   else if (i==sizesString.length-1){
-    sizes[count]=sizesString.substring(i);
+    sizes[count]=sizesString.substring(sizesString.lastIndexOf(",",i-1)+1);
   }
 }
-  alert(sizes.toString());
 }
+localStorage.setItem("sizesArray",sizes);
 
 
 function handlerNew() {
